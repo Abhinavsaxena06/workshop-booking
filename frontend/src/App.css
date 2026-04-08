@@ -28,6 +28,7 @@
   color: #61dafb;
 }
 
+/* ===== Existing React Logo Animation ===== */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +36,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ===== Smooth Fade Animation for Login Transition ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
 }
