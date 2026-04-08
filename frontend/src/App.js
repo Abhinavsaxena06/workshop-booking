@@ -22,7 +22,7 @@ function App() {
       <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
         <Navbar />
 
-        <main className="pb-20 md:pb-0 min-h-screen">
+        <main className="pb-28 min-h-screen">
           <Suspense fallback={<SkeletonLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />
