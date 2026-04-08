@@ -69,6 +69,7 @@ function Profile() {
     const updatedProfile = {
       ...draftProfile,
       fullName: draftProfile.fullName.trim() || userProfile.fullName,
+      email: draftProfile.email.trim() || userProfile.email,
       phone: draftProfile.phone.trim(),
       college: draftProfile.college.trim(),
       degree: draftProfile.degree.trim(),
@@ -270,7 +271,7 @@ function Profile() {
                 </h2>
                 <div className="space-y-4">
                   {renderField("Full Name", "fullName", userProfile.fullName)}
-                  {renderField("Email", "email", userProfile.email, false, true)}
+                  {renderField("Email", "email", userProfile.email)}
                   {renderField("Phone", "phone", userProfile.phone)}
                   {renderField("Location", "city", userProfile.city)}
                   {renderField("Joined On", "joinedOn", userProfile.joinedOn, false, true)}
