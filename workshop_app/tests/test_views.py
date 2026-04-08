@@ -8,7 +8,7 @@ from json import dumps
 from django.test import Client
 from django.contrib.auth.models import Group, Permission
 from django.contrib.auth import authenticate
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from workshop_app.forms import CreateWorkshop
 from django.conf import settings
 
