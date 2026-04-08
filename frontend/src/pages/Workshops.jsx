@@ -366,6 +366,14 @@ function Workshops() {
   const [sortBy, setSortBy] = useState("date");
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
+  useEffect(() => {
     if (
       categoryFromUrl &&
       ["All", ...workshopCategories.map((c) => c.name)].includes(categoryFromUrl)

@@ -1,15 +1,22 @@
-import React, { useMemo, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 function Profile() {
-  const navigate = useNavigate();
-
-  const storedUser = JSON.parse(localStorage.getItem("userData"));
+  const storedUser = JSON.parse(localStorage.getItem("userData")) || {};
   const userName = storedUser?.name || "Abhinav Saxena";
   const userEmail = storedUser?.email || "abhinav@example.com";
 
+  const getBookings = () => {
+    try {
+      return JSON.parse(localStorage.getItem("bookings")) || [];
+    } catch {
+      return [];
+    }
+  };
+
   const [isEditing, setIsEditing] = useState(false);
+  const [bookingsCount, setBookingsCount] = useState(getBookings().length);
 
   const [userProfile, setUserProfile] = useState({
     fullName: userName,
@@ -20,7 +27,7 @@ function Profile() {
     year: "3rd Year",
     city: "Bhopal, India",
     joinedOn: "06 April 2026",
-    enrolledWorkshops: 4,
+    enrolledWorkshops: getBookings().length,
     completedWorkshops: 1,
     certificatesEarned: 1,
     overallProgress: 64,
@@ -39,7 +46,80 @@ function Profile() {
     learningStreak: "12 days",
   });
 
-  const [draftProfile, setDraftProfile] = useState(userProfile);
+  const [draftProfile, setDraftProfile] = useState({
+    fullName: userName,
+    email: userEmail,
+    phone: "+91 98765 43210",
+    college: "Lakshmi Narain College of Technology, Bhopal",
+    degree: "B.Tech in Artificial Intelligence & Machine Learning",
+    year: "3rd Year",
+    city: "Bhopal, India",
+    joinedOn: "06 April 2026",
+    enrolledWorkshops: getBookings().length,
+    completedWorkshops: 1,
+    certificatesEarned: 1,
+    overallProgress: 64,
+    github: "github.com/abhinav",
+    linkedin: "linkedin.com/in/abhinav",
+    bio: "Passionate AI/ML student focused on building practical skills through hands-on workshops, projects, and real-world learning experiences.",
+    interests: ["Python", "Machine Learning", "Data Science", "OpenFOAM", "Scilab", "Arduino"],
+    badges: ["Fast Learner", "Workshop Explorer", "1 Certificate Earned", "Active Participant"],
+    recentActivities: [
+      "Completed 87% of Introduction to Scilab",
+      "Downloaded certificate for OpenFOAM for Beginners",
+      "Submitted Data Mining report",
+      "Joined discussion community for Machine Learning using Python",
+    ],
+    accountStatus: "Active",
+    learningStreak: "12 days",
+  });
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
+  useEffect(() => {
+    const syncProfileData = () => {
+      const updatedBookings = getBookings();
+      const updatedStoredUser = JSON.parse(localStorage.getItem("userData")) || {};
+
+      const updatedName = updatedStoredUser?.name || "Abhinav Saxena";
+      const updatedEmail = updatedStoredUser?.email || "abhinav@example.com";
+      const updatedEnrolledCount = updatedBookings.length;
+
+      setBookingsCount(updatedEnrolledCount);
+
+      setUserProfile((prev) => ({
+        ...prev,
+        fullName: updatedName,
+        email: updatedEmail,
+        enrolledWorkshops: updatedEnrolledCount,
+      }));
+
+      setDraftProfile((prev) => ({
+        ...prev,
+        fullName: updatedName,
+        email: updatedEmail,
+        enrolledWorkshops: updatedEnrolledCount,
+      }));
+    };
+
+    syncProfileData();
+
+    window.addEventListener("bookingUpdated", syncProfileData);
+    window.addEventListener("storage", syncProfileData);
+    window.addEventListener("focus", syncProfileData);
+
+    return () => {
+      window.removeEventListener("bookingUpdated", syncProfileData);
+      window.removeEventListener("storage", syncProfileData);
+      window.removeEventListener("focus", syncProfileData);
+    };
+  }, []);
 
   const progressColor = useMemo(() => {
     if (userProfile.overallProgress < 25) return "bg-red-500";
@@ -78,6 +158,7 @@ function Profile() {
       github: draftProfile.github.trim(),
       linkedin: draftProfile.linkedin.trim(),
       bio: draftProfile.bio.trim(),
+      enrolledWorkshops: bookingsCount,
     };
 
     setUserProfile(updatedProfile);
@@ -89,6 +170,7 @@ function Profile() {
     };
 
     localStorage.setItem("userData", JSON.stringify(updatedUserData));
+    window.dispatchEvent(new Event("bookingUpdated"));
 
     setIsEditing(false);
     toast.success("Profile updated successfully ✨");

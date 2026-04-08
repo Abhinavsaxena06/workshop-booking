@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
@@ -6,8 +6,15 @@ function Dashboard() {
   const storedUser = JSON.parse(localStorage.getItem("userData"));
   const userName = storedUser?.name || "Abhinav Saxena";
   const userEmail = storedUser?.email || "abhinav@example.com";
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
-  const enrolledCourses = [
+  const baseEnrolledCourses = [
     {
       id: 1,
       title: "Machine Learning using Python",
@@ -61,6 +68,58 @@ function Dashboard() {
       nextClass: "2026-04-07",
     },
   ];
+
+  const [bookings, setBookings] = useState([]);
+
+  useEffect(() => {
+    const updateBookings = () => {
+      const storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+      setBookings(storedBookings);
+    };
+
+    updateBookings();
+
+    window.addEventListener("bookingUpdated", updateBookings);
+    window.addEventListener("storage", updateBookings);
+
+    return () => {
+      window.removeEventListener("bookingUpdated", updateBookings);
+      window.removeEventListener("storage", updateBookings);
+    };
+  }, []);
+
+  const enrolledCourses = useMemo(() => {
+    const combined = [...baseEnrolledCourses];
+
+    bookings.forEach((booking) => {
+      const exists = combined.some((course) => course.id === booking.id);
+      if (!exists) {
+        combined.push({
+          id: booking.id,
+          title: booking.title,
+          professor: booking.professor || booking.instructor || "Workshop Instructor",
+          professorEmail: booking.professorEmail || "instructor@example.edu",
+          progress: booking.progress ?? 0,
+          deadline: booking.deadline || booking.date,
+          assignment:
+            booking.assignment ||
+            "Workshop booking confirmed. Await further instructions.",
+          submissionStatus: booking.submissionStatus || "Pending",
+          statusColor:
+            booking.statusColor ||
+            "text-red-600 bg-red-50 dark:text-red-300 dark:bg-red-900/30",
+          nextClass: booking.nextClass || booking.date,
+          location: booking.location,
+          category: booking.category,
+          level: booking.level,
+          duration: booking.duration,
+          description: booking.description,
+        });
+      }
+    });
+
+    return combined;
+  }, [bookings]);
 
   const completedCourses = enrolledCourses.filter((course) => course.progress === 100);
   const pendingAssignments = enrolledCourses.filter(
@@ -126,7 +185,8 @@ function Dashboard() {
   ];
 
   const totalProgress = useMemo(() => {
-    const total = enrolledCourses.reduce((sum, course) => sum + course.progress, 0);
+    if (!enrolledCourses.length) return 0;
+    const total = enrolledCourses.reduce((sum, course) => sum + (course.progress || 0), 0);
     return Math.round(total / enrolledCourses.length);
   }, [enrolledCourses]);
 
@@ -136,12 +196,17 @@ function Dashboard() {
     return "bg-green-500";
   };
 
-  const formatDate = (date) =>
-    new Date(date).toLocaleDateString("en-IN", {
+  const formatDate = (date) => {
+    if (!date) return "TBA";
+    const parsed = new Date(date);
+    if (Number.isNaN(parsed.getTime())) return date;
+
+    return parsed.toLocaleDateString("en-IN", {
       day: "numeric",
       month: "short",
       year: "numeric",
     });
+  };
 
   const downloadCertificate = (courseTitle, progress) => {
     if (progress < 85) {

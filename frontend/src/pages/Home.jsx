@@ -155,6 +155,14 @@ function Home() {
   const isLoggedIn = !!localStorage.getItem("token");
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
+  useEffect(() => {
     const current = phrases[phraseIndex];
     if (typing) {
       if (displayed.length < current.length) {
@@ -177,7 +185,6 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-pink-50 to-orange-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-colors duration-300">
-      {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <AnimatedBackground />
 
@@ -253,7 +260,6 @@ function Home() {
         </div>
       </section>
 
-      {/* STATS SECTION */}
       <section className="py-12 sm:py-16 md:py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <span
@@ -283,7 +289,6 @@ function Home() {
         </div>
       </section>
 
-      {/* CATEGORIES SECTION */}
       <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto text-center mb-8 sm:mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-2">
@@ -323,7 +328,6 @@ function Home() {
         </div>
       </section>
 
-      {/* FEATURED WORKSHOPS SECTION */}
       <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8">
@@ -344,7 +348,6 @@ function Home() {
         </div>
       </section>
 
-      {/* HOW IT WORKS SECTION */}
       <section className="py-12 sm:py-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4">
@@ -387,7 +390,6 @@ function Home() {
         </div>
       </section>
 
-      {/* BOTTOM CTA BANNER */}
       <section className="py-12 sm:py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div

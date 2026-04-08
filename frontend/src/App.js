@@ -9,7 +9,7 @@ import { Toaster } from "react-hot-toast";
 const Home = lazy(() => import('./pages/Home'));
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
-const Workshops = lazy(() => import('./pages/Workshops'));
+const Workshops = lazy(() => import('./pages/Workshops')); 
 const BookWorkshop = lazy(() => import('./pages/BookWorkshop'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const Profile = lazy(() => import('./pages/Profile'));
