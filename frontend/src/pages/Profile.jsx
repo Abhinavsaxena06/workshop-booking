@@ -7,6 +7,25 @@ function Profile() {
   const userName = storedUser?.name || "Abhinav Saxena";
   const userEmail = storedUser?.email || "abhinav@example.com";
 
+  const baseEnrolledCourses = [
+    {
+      id: 1,
+      title: "Machine Learning using Python",
+    },
+    {
+      id: 2,
+      title: "Data Mining using Python",
+    },
+    {
+      id: 3,
+      title: "Introduction to Scilab",
+    },
+    {
+      id: 4,
+      title: "OpenFOAM for Beginners",
+    },
+  ];
+
   const getBookings = () => {
     try {
       return JSON.parse(localStorage.getItem("bookings")) || [];
@@ -15,8 +34,25 @@ function Profile() {
     }
   };
 
+  const getTotalEnrolledWorkshops = () => {
+    const bookings = getBookings();
+    const combined = [...baseEnrolledCourses];
+
+    bookings.forEach((booking) => {
+      const exists = combined.some((course) => course.id === booking.id);
+      if (!exists) {
+        combined.push({
+          id: booking.id,
+          title: booking.title,
+        });
+      }
+    });
+
+    return combined.length;
+  };
+
   const [isEditing, setIsEditing] = useState(false);
-  const [bookingsCount, setBookingsCount] = useState(getBookings().length);
+  const [enrolledCount, setEnrolledCount] = useState(getTotalEnrolledWorkshops());
 
   const [userProfile, setUserProfile] = useState({
     fullName: userName,
@@ -27,7 +63,7 @@ function Profile() {
     year: "3rd Year",
     city: "Bhopal, India",
     joinedOn: "06 April 2026",
-    enrolledWorkshops: getBookings().length,
+    enrolledWorkshops: getTotalEnrolledWorkshops(),
     completedWorkshops: 1,
     certificatesEarned: 1,
     overallProgress: 64,
@@ -55,7 +91,7 @@ function Profile() {
     year: "3rd Year",
     city: "Bhopal, India",
     joinedOn: "06 April 2026",
-    enrolledWorkshops: getBookings().length,
+    enrolledWorkshops: getTotalEnrolledWorkshops(),
     completedWorkshops: 1,
     certificatesEarned: 1,
     overallProgress: 64,
@@ -84,14 +120,12 @@ function Profile() {
 
   useEffect(() => {
     const syncProfileData = () => {
-      const updatedBookings = getBookings();
       const updatedStoredUser = JSON.parse(localStorage.getItem("userData")) || {};
-
       const updatedName = updatedStoredUser?.name || "Abhinav Saxena";
       const updatedEmail = updatedStoredUser?.email || "abhinav@example.com";
-      const updatedEnrolledCount = updatedBookings.length;
+      const updatedEnrolledCount = getTotalEnrolledWorkshops();
 
-      setBookingsCount(updatedEnrolledCount);
+      setEnrolledCount(updatedEnrolledCount);
 
       setUserProfile((prev) => ({
         ...prev,
@@ -158,7 +192,7 @@ function Profile() {
       github: draftProfile.github.trim(),
       linkedin: draftProfile.linkedin.trim(),
       bio: draftProfile.bio.trim(),
-      enrolledWorkshops: bookingsCount,
+      enrolledWorkshops: enrolledCount,
     };
 
     setUserProfile(updatedProfile);
