@@ -1,27 +1,15 @@
-import express from "express";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import authRoutes from "./routes/auth.js";
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const authRoutes = require("./routes/auth");
 
 dotenv.config();
 
 const app = express();
 
-// Manual CORS middleware
+// Manual CORS
 app.use((req, res, next) => {
-  const allowedOrigins = [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "https://your-netlify-site.netlify.app"
-  ];
-
-  const origin = req.headers.origin;
-
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-
-  res.setHeader("Vary", "Origin");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
