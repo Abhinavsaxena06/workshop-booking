@@ -260,12 +260,10 @@ Solution:
 <img width="1919" height="933" alt="Screenshot 2026-04-11 123246" src="https://github.com/user-attachments/assets/af3eafc4-b074-444a-8556-037262d87511" />
 <img width="1918" height="931" alt="Screenshot 2026-04-11 123300" src="https://github.com/user-attachments/assets/d513cb92-394a-4c43-883b-d0d8c3ecc6fb" />
 
-
-
-
 #### After applying dark Mode
-![Screenshot 2026-04-11 123313](https://hackmd.io/_uploads/H1U55uvnZl.png)
-![Screenshot 2026-04-11 123325](https://hackmd.io/_uploads/BkUqquD2Zl.png)
-![Screenshot 2026-04-11 123337](https://hackmd.io/_uploads/Hk8q5dP3bg.png)
+<img width="1918" height="929" alt="Screenshot 2026-04-11 123313" src="https://github.com/user-attachments/assets/afdc4147-4e11-40bc-a945-602b1aaf1eca" />
+<img width="1919" height="930" alt="Screenshot 2026-04-11 123325" src="https://github.com/user-attachments/assets/fa7eef05-710c-4b01-8756-89a1b91f74b8" />
+<img width="1919" height="930" alt="Screenshot 2026-04-11 123337" src="https://github.com/user-attachments/assets/a90f3462-ecf6-4c50-b27a-5c1723c4e45a" />
+
 
     
