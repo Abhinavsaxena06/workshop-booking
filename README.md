@@ -215,8 +215,8 @@ Solution:
 ## Screenshots:
 
 ### BEFORE:
-![Screenshot 2026-04-11 122526](https://hackmd.io/_uploads/ByRYYuv3bg.png)
-![Screenshot 2026-04-11 122518](https://hackmd.io/_uploads/S1CFY_Dn-e.png)
+<img width="1919" height="972" alt="Screenshot 2026-04-11 122518" src="https://github.com/user-attachments/assets/3ee8feaf-5797-41ca-972e-7270bee48723" />
+<img width="1919" height="972" alt="Screenshot 2026-04-11 122526" src="https://github.com/user-attachments/assets/a421de16-374a-4b11-a793-3bddece5c989" />
 
 
 ---
@@ -224,41 +224,42 @@ Solution:
 ### AFTER:
 
 #### Without login
-<img width="1919" height="930" alt="Screenshot 2026-04-11 123337" src="https://github.com/user-attachments/assets/60545b02-b84d-4005-bb27-f274202c9d4a" />
+<img width="1919" height="930" alt="Screenshot 2026-04-11 122722" src="https://github.com/user-attachments/assets/1f8eeef1-e64b-4eaf-bb0d-2e3cf0cb7b8b" />
 
 
 #### Login Page
-![Screenshot 2026-04-11 132523](https://hackmd.io/_uploads/r1KfJFv3Wl.png)
-![Screenshot 2026-04-11 132737](https://hackmd.io/_uploads/ByYGJYw3We.png)
+<img width="1919" height="922" alt="Screenshot 2026-04-11 132523" src="https://github.com/user-attachments/assets/a223a349-5707-4067-9012-17b56d833c6a" />
+<img width="1919" height="933" alt="Screenshot 2026-04-11 132737" src="https://github.com/user-attachments/assets/eea65e87-e2c6-4736-9605-cc3c835abd15" />
 
 
 #### After login
-![Screenshot 2026-04-11 122950](https://hackmd.io/_uploads/BJbAF_P3Wl.png)
+<img width="1919" height="928" alt="Screenshot 2026-04-11 122950" src="https://github.com/user-attachments/assets/f4a9f9b3-7f33-4603-9aee-74b761dd5583" />
+
 
 #### Workshop Page
-![Screenshot 2026-04-11 123002](https://hackmd.io/_uploads/S1Ik5dPhWx.png)
-![Screenshot 2026-04-11 123029](https://hackmd.io/_uploads/r1Sk5dv2Wg.png)
-![Screenshot 2026-04-11 123012](https://hackmd.io/_uploads/Bk8Jc_D2Zg.png)
+<img width="1919" height="933" alt="Screenshot 2026-04-11 123002" src="https://github.com/user-attachments/assets/92db5369-cb76-4480-a687-f03724cf850f" />
+<img width="1919" height="928" alt="Screenshot 2026-04-11 123012" src="https://github.com/user-attachments/assets/3e862120-3bb7-488a-ac48-9f88cc5c1141" />
+<img width="1919" height="923" alt="Screenshot 2026-04-11 123029" src="https://github.com/user-attachments/assets/7248c961-e7e2-4d9c-8f32-ef6f2ae5a84e" />
+
     
 #### Booking a Workshop
-![Screenshot 2026-04-11 132223](https://hackmd.io/_uploads/SJfSRuvhWl.png)
-![Screenshot 2026-04-11 132235](https://hackmd.io/_uploads/r1GSA_Dhbx.png)
-![Screenshot 2026-04-11 132245](https://hackmd.io/_uploads/rkZrCuD3-l.png)
-
+<img width="1919" height="930" alt="Screenshot 2026-04-11 132223" src="https://github.com/user-attachments/assets/295f99d7-7166-4d80-a0ae-aed6703ed7dc" />
+<img width="1919" height="930" alt="Screenshot 2026-04-11 132235" src="https://github.com/user-attachments/assets/f596baca-0bb2-4ee3-8abf-4623f238bf47" />
+<img width="1918" height="925" alt="Screenshot 2026-04-11 132245" src="https://github.com/user-attachments/assets/d50177b3-d28a-4ffe-9a0c-a6ec001fe0d5" />
 
 
 #### Dashboard Page
-![Screenshot 2026-04-11 123040](https://hackmd.io/_uploads/BkZl9_w3Zl.png)
-![Screenshot 2026-04-11 123051](https://hackmd.io/_uploads/rkWg9dP3Ze.png)
-![Screenshot 2026-04-11 123103](https://hackmd.io/_uploads/ByWxcdD2Wg.png)
-![Screenshot 2026-04-11 123114](https://hackmd.io/_uploads/SJWe5dPhWg.png)
-
+<img width="1918" height="933" alt="Screenshot 2026-04-11 123040" src="https://github.com/user-attachments/assets/6c8c2034-982b-4fc0-a8cc-fe76b1eb2cf1" />
+<img width="1919" height="929" alt="Screenshot 2026-04-11 123051" src="https://github.com/user-attachments/assets/b2588bfd-a6a9-475a-af62-f4763e475718" />
+<img width="1919" height="930" alt="Screenshot 2026-04-11 123103" src="https://github.com/user-attachments/assets/79ad065d-d035-4353-8aed-81f15bb75b93" />
+<img width="1919" height="929" alt="Screenshot 2026-04-11 123114" src="https://github.com/user-attachments/assets/c7042cb2-20da-437a-ac03-e78fcc2a24ae" />
 
 
 #### Profile Page
-![Screenshot 2026-04-11 123233](https://hackmd.io/_uploads/Bk0O9dD3bx.png)
-![Screenshot 2026-04-11 123246](https://hackmd.io/_uploads/ByAdqODh-l.png)
-![Screenshot 2026-04-11 123300](https://hackmd.io/_uploads/rkCO9uD3Wg.png)
+<img width="1919" height="931" alt="Screenshot 2026-04-11 123233" src="https://github.com/user-attachments/assets/8c6b8394-56a4-4c88-b3d6-70643811cec8" />
+<img width="1919" height="933" alt="Screenshot 2026-04-11 123246" src="https://github.com/user-attachments/assets/af3eafc4-b074-444a-8556-037262d87511" />
+<img width="1918" height="931" alt="Screenshot 2026-04-11 123300" src="https://github.com/user-attachments/assets/d513cb92-394a-4c43-883b-d0d8c3ecc6fb" />
+
 
 
 
