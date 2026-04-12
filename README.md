@@ -224,7 +224,8 @@ Solution:
 ### AFTER:
 
 #### Without login
-![Screenshot 2026-04-11 122722](https://hackmd.io/_uploads/BkJ2K_P3Wg.png)
+<img width="1919" height="930" alt="Screenshot 2026-04-11 123337" src="https://github.com/user-attachments/assets/60545b02-b84d-4005-bb27-f274202c9d4a" />
+
 
 #### Login Page
 ![Screenshot 2026-04-11 132523](https://hackmd.io/_uploads/r1KfJFv3Wl.png)
